@@ -1,21 +1,26 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
-import DisplayCard from './DisplayCard';
 import { selectFeaturedCampsite } from '../campsites/campsitesSlice';
-import { selectFeaturedPromotion } from '../promotions/promotionsSlice'
+import { selectFeaturedPromotion } from '../promotions/promotionsSlice';
+import { selectFeaturedPartner } from '../partners/partnersSlice';
+import AnimatedDisplayCard from './AnimatedDisplayCard';
 
 const DisplayList = () => {
-    const items = [selectFeaturedCampsite(), selectFeaturedPromotion()];
+    const items = [
+        selectFeaturedCampsite(),
+        selectFeaturedPromotion(),
+        selectFeaturedPartner()
+    ];
 
     return (
         <Row>
-            {items.map((item, idx) => {
-                return (
+            {items.map((item, idx) => (
+                item && (
                     <Col md className='m-1' key={idx}>
-                        <DisplayCard item={item} />
+                        <AnimatedDisplayCard item={item} />
                     </Col>
-                );
-            })}
+                )
+            ))}
         </Row>
     );
 };

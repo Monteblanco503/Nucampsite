@@ -1,12 +1,17 @@
 import React from "react";
+import SubHeader from "../components/SubHeader";
 
-import { Container } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import DisplayList from '../features/display/DisplayList';
 
 const HomePage = () => {
     return (
         <Container>
-            <DisplayList />
+            <SubHeader current='Home' />
+            <Row>
+               <DisplayList /> 
+            </Row>
+            
         </Container>
     );
 };
